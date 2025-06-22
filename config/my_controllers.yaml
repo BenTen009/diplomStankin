@@ -1,0 +1,43 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+    # use_sim_time: true
+
+    diff_cont:
+      type: diff_drive_controller/DiffDriveController
+
+    joint_broad:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+diff_cont:
+  ros__parameters:
+    # type: skid_steer_drive_controller/SkidSteerDriveController
+
+    left_wheel_names: ['left_wheel1_joint','left_wheel2_joint','left_wheel3_joint']
+    right_wheel_names: ['right_wheel1_joint','right_wheel2_joint','right_wheel3_joint']
+
+    wheel_separation: 0.23
+    wheels_per_side: 3
+    wheel_radius: 0.06
+
+    wheel_separation_multiplier: 1.4775 
+    
+
+    publish_rate: 100.0
+
+    base_frame_id: base_link
+    enable_odom_tf: true
+    odom_frame_id: odom
+
+    # open_loop: true
+
+    # wheel_separation_multiplier: 1.0    для доп колёс, так как они дальше друг от друга
+    # left_wheel_radius_multiplier: 1.0   для доп колёс, так как они меньшего радиуса
+
+
+
+    # pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    # twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+
+    use_stamped_vel: false
+
