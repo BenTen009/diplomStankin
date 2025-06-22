@@ -68,11 +68,26 @@ def generate_launch_description():
         arguments=["joint_broad"],
     )
 
+
+    forward_track_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["forward_track_controller"],
+    )
+
+    backward_track_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["backward_track_controller"],
+    )
+
     return LaunchDescription([
         rsp,
         twist_mux,
         gazebo,
         spawn_entity,
         diff_drive_spawner,
-        joint_broad_spawner
+        joint_broad_spawner,
+        forward_track_spawner, 
+        backward_track_spawner
     ])

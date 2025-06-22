@@ -29,6 +29,18 @@
             <xacro:wheel_joint name="right_wheel2_joint"/>
             <xacro:wheel_joint name="right_wheel3_joint"/>
 
+            <joint name="forward_track_joint">
+                <command_interface name="position"/>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+            </joint>
+        
+            <joint name="backward_track_joint">
+                <command_interface name="position"/>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+            </joint>
+
         </ros2_control>
     </xacro:if>
 
