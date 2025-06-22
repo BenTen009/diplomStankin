@@ -19,11 +19,11 @@ diff_cont:
     wheel_separation: 0.23
     wheels_per_side: 3
     wheel_radius: 0.06
-
-    wheel_separation_multiplier: 1.4775 
     
-
     publish_rate: 100.0
+
+    wheel_separation_multiplier: 1.4775
+
 
     base_frame_id: base_link
     enable_odom_tf: true
