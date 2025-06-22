@@ -9,11 +9,10 @@
 
 
     <xacro:property name="min_depth" value="0.001"/>
-    <xacro:property name="mu1" value="1.5"/>
-    <!-- Было 1 -->
-
-    <xacro:property name="mu2" value="1.0"/>
+    <xacro:property name="mu1" value="0.7"/>
+    <xacro:property name="mu2" value="0.7"/>
     <xacro:property name="kp" value="1000000"/>
+    <!-- <xacro:property name="kd" value="100"/> -->
     <!-- <xacro:property name="kd" value="100"/> -->
 
 
@@ -40,14 +39,11 @@
         <color rgba="1 0 0 1"/>
     </material>
 
-
 <!-- BASE LINK -->
 
     <link name="base_link">
 
     </link>
-
-
 
 <!-- BASE_FOOTPRINT LINK -->
 
@@ -72,7 +68,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
             <geometry> 
-                <mesh filename="file://$(find my_bot)/meshes/2-Chassis.stl" />
+                <mesh filename="file://$(find test_bot)/meshes/2-Chassis.stl" />
             </geometry>
             <material name="white"/>
         </visual>
