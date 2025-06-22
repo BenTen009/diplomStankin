@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 50
+    update_rate: 100
     # use_sim_time: true
 
     diff_cont:
@@ -9,16 +9,10 @@ controller_manager:
     joint_broad:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-    # forward_track_controller:
-    #   type: position_controllers/JointGroupPositionController
-    # backward_track_controller:
-    #   type: position_controllers/JointGroupPositionController
-
-    # forward_wheel_controller:
-    #   type: velocity_controllers/JointGroupVelocityController
-    # backward_wheel_controller:
-    #   type: velocity_controllers/JointGroupVelocityController
-
+    forward_track_controller:
+      type: position_controllers/JointGroupPositionController
+    backward_track_controller:
+      type: position_controllers/JointGroupPositionController
 
 diff_cont:
   ros__parameters:
@@ -28,11 +22,13 @@ diff_cont:
     right_wheel_names: ['right_wheel1_joint','right_wheel2_joint','right_wheel3_joint']
 
     wheel_separation: 0.23
-    wheels_per_side: 1
-    # num_wheel_pairs: 3
+    wheels_per_side: 3
     wheel_radius: 0.06
     
     publish_rate: 100.0
+
+    wheel_separation_multiplier: 1.4775
+
 
     base_frame_id: base_link
     enable_odom_tf: true
@@ -45,43 +41,23 @@ diff_cont:
 
 
 
-    pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
-    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    # pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    # twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
 
     use_stamped_vel: false
 
-# forward_track_controller:
-#   ros__parameters:
-#     joints: ['forward_track_joint']
-#     pid:
-#       p: 100.0
-#       i: 0.0
-#       d: 10.0
+forward_track_controller:
+  ros__parameters:
+    joints: ['forward_track_joint']
+    pid:
+      p: 100.0
+      i: 0.0
+      d: 10.0
 
-# backward_track_controller:
-#   ros__parameters:
-#     joints: ['backward_track_joint']
-#     pid:
-#       p: 100.0
-#       i: 0.0
-#       d: 10.0
-
-# forward_wheel_controller:
-#   ros__parameters:
-#     joints: ['forward_wheel_joint']  
-#     command_interfaces: ['velocity']
-#     state_interfaces: ['position','velocity']
-#     pid:
-#       p: 0.1    
-#       i: 0.01
-#       d: 0.0
-
-# backward_wheel_controller:
-#   ros__parameters:
-#     joints: ['backward_wheel_joint']  
-#     command_interfaces: ['velocity']
-#     state_interfaces: ['position','velocity']
-#     pid:
-#       p: 0.1    
-#       i: 0.01
-#       d: 0.0
+backward_track_controller:
+  ros__parameters:
+    joints: ['backward_track_joint']
+    pid:
+      p: 100.0
+      i: 0.0
+      d: 10.0
